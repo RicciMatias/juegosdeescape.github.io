@@ -1,313 +1,612 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Juegos de Escape Resistencia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #000;
-      color: #eee;
+      background:#000;
+      color:#ffffff;
+      font-family:'Poppins',sans-serif;
+      scroll-behavior:smooth;
     }
-    header {
-      background: linear-gradient(90deg, #111, #000);
-      text-align: center;
-      padding: 2rem 1rem;
+    p { color:#aaaaaa; }
+    h1,h2,h3,h4,h5,h6 {
+      font-family:'Poppins',sans-serif;
+      text-transform:uppercase;
+      color:#ffffff;
+      letter-spacing:0.5px;
+      font-weight:800;
     }
-    header img {
-      max-width: 220px;
+    .navbar { background:#000; }
+    .navbar-nav .nav-link { color:#ffffff !important; font-weight:600; }
+    .navbar-nav .nav-link:hover { color:#ff3b3b !important; }
+    .btn-jder {
+      background:#ff3b3b;
+      color:#000;
+      font-weight:bold;
+      text-transform:uppercase;
+      border-radius:8px;
+      border:none;
+      transition:background-color 0.3s;
     }
-    nav {
-      background-color: #000;
-      border-bottom: 1px solid #333;
+    .btn-jder:hover { background:#ff6b6b; }
+    .btn-success {
+      background:#ff3b3b;
+      border-color:#ff3b3b;
+      color:#000;
+      transition:background-color 0.3s, border-color 0.3s;
     }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 0.5rem;
-      list-style: none;
-      margin: 0;
-      flex-wrap: wrap;
+    .btn-success:hover {
+      background:#ff6b6b;
+      border-color:#ff6b6b;
+      color:#000;
     }
-    nav a {
-      text-decoration: none;
-      color: #ffd700;
-      font-family: 'Poppins', sans-serif;
-      font-weight: bold;
-    }
+    .section-dark { background:#111; color:#ffffff; }
     .hero {
-      height: 60vh;
-      background-image: url('https://juegosescape.com.ar/ImagenesJDER/fondo.webp');
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background:url('https://juegosescape.com.ar/ImagenesJDER/fondo.webp') center/cover no-repeat;
+      min-height:80vh;
+      position:relative;
+      display:flex;
+      align-items:center;
+      text-align:center;
     }
     .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.6);
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.6);
     }
-    .hero-content {
-      position: relative;
-      text-align: center;
-      z-index: 1;
-      color: #f2f2f2;
+    .hero .container { position:relative; z-index:1; }
+    .room-card { background:#111; color:#ffffff; border:1px solid #444444; }
+    .section-title { color:#ffffff; text-align:center; margin-bottom:2rem; }
+    .section-title i { color:rgba(255,255,255,0.7); margin-right:.5rem; }
+    .icon-block { text-align:center; padding:1rem; }
+    .icon-block i { font-size:2rem; color:#ff3b3b; }
+    .room-card img { width:100%; height:200px; object-fit:cover; border-radius:10px; transition:transform 0.3s, box-shadow 0.3s; }
+    .room-card img:hover { transform:scale(1.05); box-shadow:0 4px 8px rgba(0,0,0,0.6); }
+    .faq-item .accordion-button {
+      background:#000;
+      color:#ffffff;
+      font-weight:bold;
+      border-bottom:1px solid #222222;
     }
-    .hero-content h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
+    .faq-item .accordion-button::after {
+      content:"+";
+      background:none;
+      color:#ff3b3b;
+      font-size:1.25rem;
     }
-    .hero-content p {
-      font-size: 1.2rem;
+    .faq-item .accordion-button:not(.collapsed)::after { content:"-"; }
+    .faq-item .accordion-button:hover { color:#ff3b3b; }
+    .faq-item .accordion-body {
+      background:#222222;
+      color:#aaaaaa;
     }
-    .hero-content a {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #ffd700;
-      color: #000;
-      font-family: 'Poppins', sans-serif;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-    section {
-      padding: 4rem 1rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .section-dark {
-      background-color: #111;
-    }
-    h2.section-title {
-      font-family: 'Poppins', sans-serif;
-      color: #ffd700;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .descripcion {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .grid-salas {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-    }
-    .card {
-      background-color: #111;
-      border: 1px solid #333;
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: scale(1.02);
-    }
-    .card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-    .card-content {
-      padding: 1rem;
-    }
-    .card-content h3 {
-      font-family: 'Poppins', sans-serif;
-      color: #ffd700;
-      margin-top: 0;
-    }
-    .card-content p {
-      font-size: 0.95rem;
-    }
-    .card-content a {
-      display: inline-block;
-      margin-top: 1rem;
-      background-color: #25d366;
-      color: white;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      border-radius: 4px;
-      font-family: 'Poppins', sans-serif;
-    }
-    .cta {
-      background-color: #111;
-      text-align: center;
-      color: #ffd700;
-    }
-    .cta p {
-      color: #f2f2f2;
-    }
-    .cta a {
-      display: inline-block;
-      margin-top: 1rem;
-      background-color: #25d366;
-      color: white;
-      padding: 1rem 2rem;
-      font-size: 1.1rem;
-      text-decoration: none;
-      font-family: 'Poppins', sans-serif;
-      border-radius: 6px;
-    }
-    footer {
-      background-color: #000;
-      padding: 2rem 1rem;
-      color: #aaa;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: space-between;
-    }
-    footer .col {
-      flex: 1 1 200px;
-    }
-    footer a {
-      color: #ffd700;
-      text-decoration: none;
-    }
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 44px;
-      height: 44px;
-      background-color: #25d366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      z-index: 999;
-      box-shadow: 0 0 10px #000;
-      text-decoration: none;
-      color: #fff;
+    .pricing-card { background:#111; border:1px solid #444444; color:#ffffff; }
+    .pricing-card h2 { color:#ff3b3b; }
+    .whatsapp-float { position:fixed; right:20px; bottom:20px; background:#ff3b3b; color:#000; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:24px; z-index:1000; text-decoration:none; }
+    .whatsapp-float:hover { background:#ff6b6b; color:#000; }
+    footer { background:#000; color:#aaaaaa; padding:2rem 0; }
+    footer a { color:#ff3b3b; text-decoration:none; }
+    footer a:hover { color:#ff6b6b; }
+    .reserve-float { position:fixed; right:20px; bottom:80px; background:#ffffff; color:#000; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:24px; z-index:1000; text-decoration:none; border:2px solid #ff3b3b; }
+    .reserve-float:hover { background:#f0f0f0; }
+    .gallery-slider .swiper-slide img { width:100%; height:300px; object-fit:cover; }
+    img { border-radius:10px; }
+    .cumple-summary {
+      font-size:1.2rem;
+      font-weight:600;
+      color:#ff3b3b;
+      cursor:pointer;
+      margin-bottom:1rem;
     }
   </style>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="70" tabindex="0">
 
-  <!-- HEADER -->
-  <header>
-    <img src="https://juegosescape.com.ar/ImagenesJDER/LOGOJDERBLANCO.webp" alt="Juegos de Escape Logo" />
-  </header>
-
-  <!-- NAV -->
-  <nav>
-    <ul>
-      <li><a href="#salas">Salas</a></li>
-      <li><a href="#quienes">Quiénes Somos</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Viví el escape.</h1>
-      <p>Salas únicas. Experiencias intensas. Reservá tu turno ahora.</p>
-      <a href="#salas">Explorar Salas</a>
+<nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#"><img src="https://juegosescape.com.ar/ImagenesJDER/LOGOJDERBLANCO.webp" alt="Juegos de Escape Resistencia" height="40"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#como">Cómo jugar</a></li>
+        <li class="nav-item"><a class="nav-link" href="#ubicacion">Dónde estamos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#salas">Salas</a></li>
+        <li class="nav-item"><a class="nav-link" href="#excelente">Excelente para...</a></li>
+        <li class="nav-item"><a class="nav-link" href="#cumples">Cumples</a></li>
+        <li class="nav-item"><a class="nav-link" href="#opiniones">Opiniones</a></li>
+        <li class="nav-item"><a class="nav-link" href="#redes">Redes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faqs">Preguntas frecuentes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes somos</a></li>
+        <li class="nav-item ms-lg-3"><a class="btn btn-jder" target="_blank" href="https://reservasjuegosescape.mclix.ar">Reservar</a></li>
+      </ul>
     </div>
-  </section>
+  </div>
+</nav>
 
-  <!-- QUIÉNES SOMOS -->
-  <section class="section-dark" id="quienes">
-    <h2 class="section-title">Quiénes Somos</h2>
-    <div class="descripcion">
-      <p>Somos JDER - Juegos de Escape Resistencia. Creamos experiencias inmersivas que ponen a prueba tu ingenio, tu capacidad de trabajo en equipo y tu adrenalina. Cada sala es una historia distinta con desafíos únicos que tendrás que resolver antes de que se acabe el tiempo. ¿Estás listo para vivirlo?</p>
-    </div>
-  </section>
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="container" data-aos="fade-up">
+    <h1 class="fw-bold mb-3">VIVÍ LA ADRENALINA DEL ESCAPE</h1>
+    <p class="mb-4">Una experiencia única en Resistencia, Chaco. ¿Se animan a jugar?</p>
+    <a href="https://reservasjuegosescape.mclix.ar" class="btn btn-jder" target="_blank">Reservar</a>
+  </div>
+</section>
 
-  <!-- NUESTRAS SALAS -->
-  <section id="salas">
-    <h2 class="section-title">Nuestras Salas</h2>
-    <div class="grid-salas">
-      <div class="card">
-        <img src="https://juegosescape.com.ar/ImagenesJDER/ULTRATUMBA1.1.webp" alt="Ultra Tumba" />
-        <div class="card-content">
-          <h3>Ultra Tumba 🦇🪦🥀</h3>
-          <p>Un caso olvidado en el cementerio. Revelá la verdad antes de convertirte en parte del pasado.</p>
-          <a href="https://wa.me/5493624631591">Reservar</a>
-        </div>
+<!-- COMO JUGAR -->
+<section id="como" class="py-5 section-dark">
+  <div class="container">
+    <h2 class="section-title"><i class="bi bi-hourglass-split"></i>Te proponemos una aventura!</h2>
+    <p class="text-center mb-4">¿Serás capaz de escapar en 60 minutos?</p>
+    <div class="row text-center">
+      <div class="col-md-4 icon-block" data-aos="fade-up">
+        <i class="bi bi-people-fill"></i>
+        <h3>Armá tu equipo de 2 a 8 jugadores</h3>
       </div>
-      <div class="card">
-        <img src="https://juegosescape.com.ar/ImagenesJDER/VELATORIA1X1.webp" alt="Sala Velatoria" />
-        <div class="card-content">
-          <h3>Sala Velatoria ⚰️🕯️👻</h3>
-          <p>Una velada con secretos ocultos. Infiltrate y descubrí lo que no debería saberse.</p>
-          <a href="https://wa.me/5493624631591">Reservar</a>
-        </div>
+      <div class="col-md-4 icon-block" data-aos="fade-up" data-aos-delay="100">
+        <i class="bi bi-door-closed"></i>
+        <h3>Serán encerrados en una habitación donde transcurre una historia...</h3>
       </div>
-      <div class="card">
-        <img src="https://juegosescape.com.ar/ImagenesJDER/ATRACO1X1.webp" alt="Atraco Narco" />
-        <div class="card-content">
-          <h3>Atraco Narco 💰🔫📺</h3>
-          <p>Entrá, robá, escapá. Un bunker, una banda narco y 60 minutos para sobrevivir.</p>
-          <a href="https://wa.me/5493624631591">Reservar</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://juegosescape.com.ar/ImagenesJDER/PABELLON1X1.webp" alt="Pabellón 5" />
-        <div class="card-content">
-          <h3>Pabellón 5 🧱⚽📻</h3>
-          <p>¿Podés escapar del pabellón más peligroso del penal? El tiempo no está de tu lado.</p>
-          <a href="https://wa.me/5493624631591">Reservar</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://juegosescape.com.ar/ImagenesJDER/PLANDENTAL1X1.webp" alt="Plan Dental" />
-        <div class="card-content">
-          <h3>Plan Dental 🦷😱🪥</h3>
-          <p>El dentista ya no trabaja con pacientes... sino con víctimas. Escapá a tiempo.</p>
-          <a href="https://wa.me/5493624631591">Reservar</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://juegosescape.com.ar/ImagenesJDER/CULTO1X1.webp" alt="Culto Zodiacal" />
-        <div class="card-content">
-          <h3>Culto Zodiacal 🔮♒📓</h3>
-          <p>Sectas, símbolos y oscuridad. Tu signo puede ser tu maldición... o tu salvación.</p>
-          <a href="https://wa.me/5493624631591">Reservar</a>
-        </div>
+      <div class="col-md-4 icon-block" data-aos="fade-up" data-aos-delay="200">
+        <i class="bi bi-puzzle"></i>
+        <h3>Deberán usar la lógica y el ingenio para resolver los enigmas y escapar!</h3>
       </div>
     </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section class="cta">
-    <h2>¿Listo para la aventura?</h2>
-    <p>Contactanos y reservá tu lugar ahora mismo. ¡Viví la experiencia!</p>
-    <a href="https://wa.me/5493624631591?text=Hola%20Juegos%20de%20Escape!%20Tengo%20una%20consulta%0ADatos%20importantes%20(-no%20borrar-)%0AReserva:%20Finalizada%0APago%20de%20se%C3%B1a:%20Completado">WhatsApp</a>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="contacto">
-    <div class="col">
-      <h4>Contacto</h4>
-      <p><a href="mailto:info@jder.com">info@jder.com</a></p>
-      <p>Resistencia, Chaco - Argentina</p>
+    <div class="text-center mt-4">
+      <a href="https://reservasjuegosescape.mclix.ar" target="_blank" class="btn btn-jder btn-lg" style="font-size:0.9rem;">
+        <i class="bi bi-calendar-check me-2"></i>Ingresá al portal de reservas
+      </a>
     </div>
-    <div class="col">
-      <h4>Redes</h4>
-      <p><a href="https://instagram.com">Instagram</a></p>
-      <p><a href="https://facebook.com">Facebook</a></p>
-      <p><a href="https://tiktok.com">TikTok</a></p>
+  </div>
+</section>
+<section id="ubicacion" class="py-5">
+  <div class="container text-center">
+    <h2 class="section-title"><i class="bi bi-geo-alt"></i>Dónde Estamos</h2>
+    <p>Catamarca 352, Resistencia, Chaco - Argentina</p>
+    <p>Horarios: jueves a lunes · 14:00 a 22:45 (feriados incluidos)</p>
+    <div class="ratio ratio-16x9 my-3">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14163.394724840504!2d-58.9834009!3d-27.4428262!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94450d37962712d9%3A0x7626fed1dc52729a!2sJuegos%20de%20Escape%20Resistencia!5e0!3m2!1ses-419!2sar!4v1723242552226!5m2!1ses-419!2sar" width="1920" height="1000" style="border:0;" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
     </div>
-    <div class="col">
-      <h4>Derechos</h4>
-      <p>© 2025 Juegos de Escape Resistencia</p>
+  </div>
+</section>
+
+
+<!-- SALAS -->
+<section id="salas" class="py-5 section-dark">
+  <div class="container">
+    <h2 class="section-title"><i class="bi bi-door-open"></i>Nuestras Salas</h2>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card room-card h-100">
+          <img src="https://juegosescape.com.ar/ImagenesJDER/ULTRATUMBA1.1.webp" class="card-img-top" alt="Ultra Tumba">
+          <div class="card-body">
+            <h5 class="card-title">Ultra Tumba 🦇</h5>
+            <p class="card-text">2-8 jugadores · 60 min · Local 1</p>
+            <p class="card-text">Investigá un homicidio sin resolver en el cementerio. Una médium te guía, pero el pasado no siempre quiere ser descubierto.</p>
+            <a href="https://reservasjuegosescape.mclix.ar" target="_blank" class="btn btn-jder">Reservar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card room-card h-100">
+          <img src="https://juegosescape.com.ar/ImagenesJDER/VELATORIA1X1.webp" class="card-img-top" alt="Sala Velatoria">
+          <div class="card-body">
+            <h5 class="card-title">Sala Velatoria ⚰️</h5>
+            <p class="card-text">2-8 jugadores · 60 min · Local 1</p>
+            <p class="card-text">Un funeral privado esconde un testamento. Rescatá a tu amigo antes de que la familia lo descubra.</p>
+            <a href="https://reservasjuegosescape.mclix.ar" target="_blank" class="btn btn-jder">Reservar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card room-card h-100">
+          <img src="https://juegosescape.com.ar/ImagenesJDER/ATRACO1X1.webp" class="card-img-top" alt="Atraco Narco">
+          <div class="card-body">
+            <h5 class="card-title">Atraco Narco 💰</h5>
+            <p class="card-text">2-8 jugadores · 60 min · Local 1</p>
+            <p class="card-text">Te infiltran en un búnker narco. Encontrá la bóveda y escapá antes que vuelva la banda.</p>
+            <a href="https://reservasjuegosescape.mclix.ar" target="_blank" class="btn btn-jder">Reservar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card room-card h-100">
+          <img src="https://juegosescape.com.ar/ImagenesJDER/PABELLON1X1.webp" class="card-img-top" alt="Pabellón 5">
+          <div class="card-body">
+            <h5 class="card-title">Pabellón 5 🧱</h5>
+            <p class="card-text">2-8 jugadores · 60 min · Local 1</p>
+            <p class="card-text">Una cárcel en crisis. Aliate con la banda rival o jugátela solo para salir con vida.</p>
+            <a href="https://reservasjuegosescape.mclix.ar" target="_blank" class="btn btn-jder">Reservar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card room-card h-100">
+          <img src="https://juegosescape.com.ar/ImagenesJDER/PLANDENTAL1X1.webp" class="card-img-top" alt="Plan Dental">
+          <div class="card-body">
+            <h5 class="card-title">Plan Dental 🦷</h5>
+            <p class="card-text">2-8 jugadores · 60 min · Local 1</p>
+            <p class="card-text">Un dentista maniático convirtió su consultorio en un laboratorio. Descubrí sus secretos antes de ser la próxima prueba.</p>
+            <a href="https://reservasjuegosescape.mclix.ar" target="_blank" class="btn btn-jder">Reservar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card room-card h-100">
+          <img src="https://juegosescape.com.ar/ImagenesJDER/CULTO1X1.webp" class="card-img-top" alt="Culto Zodiacal">
+          <div class="card-body">
+            <h5 class="card-title">Culto Zodiacal 🔮</h5>
+            <p class="card-text">2-8 jugadores · 60 min · Local 1</p>
+            <p class="card-text">Un retiro astrológico se vuelve una trampa ritual. Tu signo puede ser tu maldición... o tu salvación.</p>
+            <a href="https://reservasjuegosescape.mclix.ar" target="_blank" class="btn btn-jder">Reservar</a>
+          </div>
+        </div>
+      </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card room-card h-100">
+            <img src="https://juegosescape.com.ar/ImagenesJDER/fondo.webp" class="card-img-top" alt="Próximamente">
+            <div class="card-body">
+              <h5 class="card-title">Próximamente ❓</h5>
+              <p class="card-text">Próxima sala en desarrollo</p>
+              <a href="#" class="btn btn-jder disabled">Muy pronto</a>
+            </div>
+          </div>
+        </div>
     </div>
-  </footer>
+  </div>
+</section>
+<section id="excelente" class="py-5">
+  <div class="container">
+    <h2 class="section-title"><i class="bi bi-people"></i>Excelente para...</h2>
+    <div class="row text-center">
+      <div class="col-md-3" data-aos="zoom-in">
+        <h4>Familia y Amigos</h4>
+        <p>Diversión asegurada para romper la rutina.</p>
+      </div>
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+        <h4>Turistas</h4>
+        <p>Una forma distinta de conocer Resistencia.</p>
+      </div>
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+        <h4>Gamers</h4>
+        <p>Llevá tu pasión por los puzzles al mundo real.</p>
+      </div>
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+        <h4>Empresas</h4>
+        <p>Desafíos ideales para fortalecer el trabajo en equipo.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- WHATSAPP FLOTANTE -->
-  <a class="whatsapp-button" href="https://wa.me/5493624631591?text=Hola%20Juegos%20de%20Escape!%20Tengo%20una%20consulta%0ADatos%20importantes%20(-no%20borrar-)%0AReserva:%20Finalizada%0APago%20de%20se%C3%B1a:%20Completado" title="Chatear por WhatsApp">💬</a>
+<section id="cumples" class="py-5 section-dark">
+  <div class="container text-center">
+    <h2 class="section-title"><i class="bi bi-gift-fill"></i>Cumples y Eventos</h2>
+    <p>¡Cumples con aventura para ellos y tranquilidad para vos! Mientras ellos tienen una experiencia increíble con amigos, ustedes pueden relajarse. Nuestro equipo guía cada paso en un ambiente seguro.</p>
+    <details class="mb-3">
+      <summary class="cumple-summary">¿Por qué festejar en Juegos de Escape Resistencia?</summary>
+      <ul class="list-unstyled ms-3">
+        <li>Jugás dos salas seguidas con historia y efectos reales.</li>
+        <li>El cumple dura 3 horas con el local exclusivo para el grupo.</li>
+        <li>Incluye tarjeta digital de invitación y espacio para padres.</li>
+        <li>Podés traer lo que quieras para comer o tomar (hay heladera).</li>
+        <li>Nosotros guiamos todo y cuidamos la experiencia.</li>
+        <li>Ideal para grupos de <strong>8 a 32 personas</strong>.</li>
+        <li>¡No se suspende por lluvia y está todo listo al llegar!</li>
+      </ul>
+    </details>
+    <p class="mb-3"><strong>Escribinos por WhatsApp y armamos el cumple a tu medida.</strong></p>
+    <a href="https://wa.me/5493624631591?text=Hola!%20Quiero%20festejar%20un%20CUMPLEA%C3%91OS%20en%20Juegos%20de%20Escape%20Resistencia!" target="_blank" class="btn btn-jder">Cotizar por WhatsApp</a>
+  </div>
+</section>
 
+<section id="opiniones" class="py-5 section-dark">
+  <div class="container text-center">
+    <h2 class="section-title"><i class="bi bi-star"></i>Opiniones de nuestros clientes</h2>
+    <p style="font-size:2rem;">⭐⭐⭐⭐⭐</p>
+    <a href="https://maps.app.goo.gl/UMJDNyejNFyNWTS26" target="_blank" class="btn btn-jder">Ver comentarios en Google</a>
+  </div>
+</section>
+<section id="redes" class="py-5 section-dark text-center">
+  <div class="container">
+    <h2 class="section-title"><i class="bi bi-share-fill"></i>Seguinos en Redes</h2>
+    <div class="d-flex justify-content-center gap-4 fs-2">
+      <a href="https://www.instagram.com/juegosdeescape/" target="_blank" class="text-decoration-none text-light"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.facebook.com/juegosdeescape" target="_blank" class="text-decoration-none text-light"><i class="bi bi-facebook"></i></a>
+      <a href="https://wa.me/5493624631591?text=Hola,%20quiero%20reservar%20un%20turno%20en%20Juegos%20de%20Escape!" target="_blank" class="text-decoration-none text-light"><i class="bi bi-whatsapp"></i></a>
+      <a href="https://www.tiktok.com/@juegosdeescape" target="_blank" class="text-decoration-none text-light"><i class="bi bi-tiktok"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- PREGUNTAS FRECUENTES -->
+<section id="faqs" class="py-5">
+  <div class="container">
+      <h2 class="section-title"><i class="bi bi-question-circle"></i>Preguntas Frecuentes</h2>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq1">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">¿Qué es un juego de escape?</button>
+        </h2>
+        <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Es una experiencia en equipo donde tienen 60 minutos para resolver enigmas, descubrir pistas y escapar de una sala con una historia original. Todo lo que ves y tocás es parte del juego.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">¿Desde qué edad se puede jugar?</button>
+        </h2>
+        <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Desde los 6 años en adelante.
+            <ul>
+              <li>De 6 a 8 años deben ingresar con un adulto.</li>
+              <li>De 9 a 14 pueden jugar solos, pero un adulto debe quedarse en el local.</li>
+              <li>Desde los 15 pueden jugar de forma independiente.</li>
+              <li>Menores de 5 pueden entrar, pero no lo recomendamos.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">¿Cuántas personas pueden jugar?</button>
+        </h2>
+        <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Las salas están pensadas para 2 a 8 personas. Para grupos más grandes, tenemos modos especiales: paralelo y competencia.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">¿Qué es el modo competencia o paralelo?</button>
+        </h2>
+        <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            <ul>
+              <li><strong>Modo paralelo:</strong> juegan varias salas al mismo tiempo en grupos.</li>
+              <li><strong>Modo competencia:</strong> dos equipos juegan dos salas cada uno y gana el que termina más rápido.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq5">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">¿Cuánto cuesta?</button>
+        </h2>
+        <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="faq5" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            $10.000 por persona. Se puede pagar en efectivo, tarjeta o transferencia. Seña mínima para confirmar turno: $5.000 (se descuenta del total al pagar en el local). Hay cuotas sin interés con TUYA (3 y 5), VISA/MASTER/CABAL (3 y 6).
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq6">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">¿Cómo reservo un turno?</button>
+        </h2>
+        <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="faq6" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Reservá haciendo clic <a href="https://reservasjuegosescape.mclix.ar" target="_blank">acá</a>.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq7">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">¿Puedo ir sin reserva?</button>
+        </h2>
+        <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="faq7" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">No. Atendemos únicamente con reserva previa.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq8">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">¿Puedo cancelar o cambiar mi reserva?</button>
+        </h2>
+        <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="faq8" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Sí, pero tenés que avisarnos con tiempo. Las señas no congelan el precio final a menos que se pague el 100% del turno.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq9">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">¿Se puede traer comida o bebida?</button>
+        </h2>
+        <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="faq9" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Solo en cumpleaños o eventos. Podés traer cosas para picar o tomar, pero no se permite alcohol, ni alimentos crudos o peligrosos.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq10">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">¿Organizan cumpleaños?</button>
+        </h2>
+        <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="faq10" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Sí. La experiencia incluye dos salas seguidas, espacio exclusivo por 3 horas, y podés traer lo que quieras para compartir. Ideal para grupos de 8 a 32 personas. Hablános por WhatsApp <a href="https://wa.me/5493624631591?text=Hola!%20Quiero%20festejar%20un%20CUMPLEA%C3%91OS%20en%20Juegos%20de%20Escape%20Resistencia!" target="_blank">haciendo clic acá</a>.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq11">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11">¿Hacen eventos para empresas o colegios?</button>
+        </h2>
+        <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="faq11" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Sí. Adaptamos la experiencia para trabajo en equipo, integración o talleres educativos. Consultanos para armar una propuesta a medida.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq12">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12" aria-expanded="false" aria-controls="collapse12">¿Qué medidas de seguridad tienen?</button>
+        </h2>
+        <div id="collapse12" class="accordion-collapse collapse" aria-labelledby="faq12" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Todas las salas están monitoreadas por cámaras y sonido. Siempre hay un anfitrión siguiendo el juego desde afuera. Nunca estás encerrado completamente: todas las salas cuentan con salidas de emergencia accesibles en cualquier momento.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq13">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13" aria-expanded="false" aria-controls="collapse13">¿Cómo me preparo para jugar?</button>
+        </h2>
+        <div id="collapse13" class="accordion-collapse collapse" aria-labelledby="faq13" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">No necesitás experiencia previa ni traer nada. Nosotros te explicamos todo antes de comenzar.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq14">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse14" aria-expanded="false" aria-controls="collapse14">¿Puedo visitar el local antes de reservar?</button>
+        </h2>
+        <div id="collapse14" class="accordion-collapse collapse" aria-labelledby="faq14" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Sí, pero solo con coordinación previa. Contactanos por WhatsApp para agendar una visita.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq15">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse15" aria-expanded="false" aria-controls="collapse15">¿Cuánto dura la experiencia completa?</button>
+        </h2>
+        <div id="collapse15" class="accordion-collapse collapse" aria-labelledby="faq15" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">La experiencia completa dura unos 75 minutos: incluye la recepción, introducción, 60 minutos de juego y cierre con fotos. Te pedimos que llegues unos minutos antes para aprovechar bien el tiempo.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq16">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse16" aria-expanded="false" aria-controls="collapse16">¿Qué pasa si llegamos tarde?</button>
+        </h2>
+        <div id="collapse16" class="accordion-collapse collapse" aria-labelledby="faq16" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Si llegás con mucho retraso, el tiempo de juego se acorta para no afectar a otros grupos. Si pasan más de 15 minutos del horario, el turno puede perderse sin reembolso.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq17">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse17" aria-expanded="false" aria-controls="collapse17">¿Necesitamos tener experiencia previa?</button>
+        </h2>
+        <div id="collapse17" class="accordion-collapse collapse" aria-labelledby="faq17" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">No. Todas las salas están diseñadas para personas que nunca jugaron. Nuestro equipo los guía con pistas si hace falta.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq18">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse18" aria-expanded="false" aria-controls="collapse18">¿Se puede jugar más de una sala en el mismo día?</button>
+        </h2>
+        <div id="collapse18" class="accordion-collapse collapse" aria-labelledby="faq18" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Sí. Podés reservar dos salas seguidas si hay disponibilidad. Lo ideal es avisar con anticipación para organizar bien los horarios.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq19">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse19" aria-expanded="false" aria-controls="collapse19">¿Qué pasa si alguien se asusta o no quiere seguir?</button>
+        </h2>
+        <div id="collapse19" class="accordion-collapse collapse" aria-labelledby="faq19" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">No hay problema. Podés salir en cualquier momento. El resto del grupo puede continuar. Nunca forzamos la experiencia: se trata de disfrutar.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="faq20">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse20" aria-expanded="false" aria-controls="collapse20">¿Puedo ingresar con objetos personales?</button>
+        </h2>
+        <div id="collapse20" class="accordion-collapse collapse" aria-labelledby="faq20" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">Sí, podés ingresar con lo que necesites por salud: anteojos, medicación, inhaladores, puffs para asma, etc. No está permitido ingresar con celulares, cámaras ni dispositivos electrónicos durante el juego.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quienes-somos" class="py-5 section-dark">
+  <div class="container">
+    <h2 class="section-title"><i class="bi bi-info-circle"></i>Quiénes Somos</h2>
+    <p class="text-center">Somos un equipo de creativos, diseñadores y fanáticos del misterio que armamos Juegos de Escape Resistencia desde cero. Desde 2018 diseñamos cada sala a mano, con historias propias y objetos reales para que vivas una experiencia única. Todo lo que pasa, pasa de verdad.</p>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="py-5 section-dark">
+  <div class="container">
+    <h2 class="section-title">Clientes felices!</h2>
+    <div class="swiper gallery-slider" data-aos="fade-up">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://juegosescape.com.ar/ImagenesJDER/ULTRATUMBA1.1.webp" class="img-fluid" alt="Sala"></div>
+        <div class="swiper-slide"><img src="https://juegosescape.com.ar/ImagenesJDER/VELATORIA1X1.webp" class="img-fluid" alt="Sala"></div>
+        <div class="swiper-slide"><img src="https://juegosescape.com.ar/ImagenesJDER/ATRACO1X1.webp" class="img-fluid" alt="Sala"></div>
+        <div class="swiper-slide"><img src="https://juegosescape.com.ar/ImagenesJDER/PABELLON1X1.webp" class="img-fluid" alt="Sala"></div>
+        <div class="swiper-slide"><img src="https://juegosescape.com.ar/ImagenesJDER/PLANDENTAL1X1.webp" class="img-fluid" alt="Sala"></div>
+        <div class="swiper-slide"><img src="https://juegosescape.com.ar/ImagenesJDER/CULTO1X1.webp" class="img-fluid" alt="Sala"></div>
+        <div class="swiper-slide"><img src="https://juegosescape.com.ar/ImagenesJDER/fondo.webp" class="img-fluid" alt="Proximamente"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA FINAL -->
+<section class="py-5 text-center">
+  <h2 class="section-title" data-aos="fade"><i class="bi bi-flag"></i>¿Estás listo?</h2>
+  <a href="https://reservasjuegosescape.mclix.ar" target="_blank" class="btn btn-jder btn-lg m-2" data-aos="zoom-in">Reservar ahora</a>
+  <a href="https://wa.me/5493624631591?text=Hola,%20quiero%20reservar%20un%20turno%20en%20Juegos%20de%20Escape!" target="_blank" class="btn btn-success btn-lg m-2" data-aos="zoom-in" data-aos-delay="100">Consultá por WhatsApp</a>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row text-center text-md-start">
+      <div class="col-md-4 mb-3">
+        <h4>Contacto</h4>
+        <p>Catamarca 352, Resistencia, Chaco, Argentina</p>
+        <p>Horarios: jueves a lunes de 14:00 a 22:45 (feriados incluidos)</p>
+        <p><a href="mailto:juegosdeescaperesistencia@gmail.com">juegosdeescaperesistencia@gmail.com</a></p>
+        <p>Tel: +54 9 3624 631591</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h4>Redes</h4>
+        <p><a href="https://www.instagram.com/juegosdeescape/" target="_blank"><i class="bi bi-instagram"></i> Instagram</a></p>
+        <p><a href="https://www.facebook.com/juegosdeescape" target="_blank"><i class="bi bi-facebook"></i> Facebook</a></p>
+        <p><a href="https://www.tiktok.com/@juegosdeescape" target="_blank"><i class="bi bi-tiktok"></i> TikTok</a></p>
+      </div>
+      <div class="col-md-4 mb-3 text-md-end">
+        <h4>Derechos</h4>
+        <p>© 2025 Juegos de Escape Resistencia</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5493624631591?text=Hola,%20quiero%20reservar%20un%20turno%20en%20Juegos%20de%20Escape!" class="whatsapp-float" title="WhatsApp" target="_blank"><i class="bi bi-whatsapp"></i></a>
+
+<a href="https://reservasjuegosescape.mclix.ar" class="reserve-float" target="_blank" title="Reservar"><i class="bi bi-calendar-check"></i></a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+  AOS.init();
+  var gallerySwiper = new Swiper('.gallery-slider', {
+    slidesPerView: 2,
+    spaceBetween: 10,
+    loop: true,
+    autoplay: { delay: 3000 },
+    pagination: { el: '.gallery-slider .swiper-pagination', clickable: true },
+    breakpoints: { 768: { slidesPerView: 3 }, 992: { slidesPerView: 4 } }
+  });
+</script>
 </body>
 </html>
