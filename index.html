@@ -50,23 +50,21 @@
       color:#000;
     }
     .section-dark { background:#111; color:#ffffff; }
-    .hero-slider .swiper-slide {
-      min-height:100vh;
+    .hero {
+      background:url('https://juegosescape.com.ar/ImagenesJDER/fondo.webp') center/cover no-repeat;
+      min-height:80vh;
       position:relative;
-      background-size:cover;
-      background-position:center;
+      display:flex;
+      align-items:center;
+      text-align:center;
     }
-    .hero-slider .swiper-slide::before {
+    .hero::before {
       content:"";
       position:absolute;
       inset:0;
       background:rgba(0,0,0,0.6);
     }
-    .hero-slider h1 { font-size:3rem; }
-    @media (max-width: 576px) {
-      .hero-slider h1 { font-size:1.75rem; }
-    }
-    .slide-content { position:relative; z-index:1; }
+    .hero .container { position:relative; z-index:1; }
     .room-card { background:#111; color:#ffffff; border:1px solid #444444; }
     .section-title { color:#ffffff; text-align:center; margin-bottom:2rem; }
     .section-title i { color:rgba(255,255,255,0.7); margin-right:.5rem; }
@@ -103,6 +101,13 @@
     .reserve-float:hover { background:#f0f0f0; }
     .gallery-slider .swiper-slide img { width:100%; height:300px; object-fit:cover; }
     img { border-radius:10px; }
+    .cumple-summary {
+      font-size:1.2rem;
+      font-weight:600;
+      color:#ff3b3b;
+      cursor:pointer;
+      margin-bottom:1rem;
+    }
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="70" tabindex="0">
@@ -129,34 +134,13 @@
   </div>
 </nav>
 
-<!-- HERO / SLIDER -->
-<section class="swiper hero-slider">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide d-flex align-items-center justify-content-center" style="background:#000 url('https://juegosescape.com.ar/ImagenesJDER/fondo.webp') center/cover no-repeat;">
-      <div class="slide-content text-center text-white p-3" data-aos="fade-up">
-        <h1 class="fw-bold">UNA EXPERIENCIA ÚNICA EN RESISTENCIA, CHACO</h1>
-        <p>Una salida distinta e inmersiva. Reserven ahora.</p>
-        <a href="https://reservasjuegosescape.mclix.ar" class="btn btn-jder mt-3" target="_blank">Reservar</a>
-      </div>
-    </div>
-    <div class="swiper-slide d-flex align-items-center justify-content-center" style="background:#000 url('https://juegosescape.com.ar/ImagenesJDER/ULTRATUMBA1.1.webp') center/cover no-repeat;">
-      <div class="slide-content text-center text-white p-3" data-aos="fade-up">
-        <h1 class="fw-bold">UNA EXPERIENCIA ÚNICA EN RESISTENCIA, CHACO</h1>
-        <p>Una salida distinta e inmersiva. Reserven ahora.</p>
-        <a href="https://reservasjuegosescape.mclix.ar" class="btn btn-jder mt-3" target="_blank">Reservar</a>
-      </div>
-    </div>
-    <div class="swiper-slide d-flex align-items-center justify-content-center" style="background:#000 url('https://juegosescape.com.ar/ImagenesJDER/CULTO1X1.webp') center/cover no-repeat;">
-      <div class="slide-content text-center text-white p-3" data-aos="fade-up">
-        <h1 class="fw-bold">UNA EXPERIENCIA ÚNICA EN RESISTENCIA, CHACO</h1>
-        <p>Una salida distinta e inmersiva. Reserven ahora.</p>
-        <a href="https://reservasjuegosescape.mclix.ar" class="btn btn-jder mt-3" target="_blank">Reservar</a>
-      </div>
-    </div>
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="container" data-aos="fade-up">
+    <h1 class="fw-bold mb-3">VIVÍ LA ADRENALINA DEL ESCAPE</h1>
+    <p class="mb-4">Una experiencia única en Resistencia, Chaco. ¿Se animan a jugar?</p>
+    <a href="https://reservasjuegosescape.mclix.ar" class="btn btn-jder" target="_blank">Reservar</a>
   </div>
-  <div class="swiper-pagination"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
 </section>
 
 <!-- COMO JUGAR -->
@@ -284,10 +268,10 @@
 
 <section id="cumples" class="py-5 section-dark">
   <div class="container">
-    <h2 class="section-title"><i class="bi bi-cake-fill"></i>Cumples y Eventos</h2>
+    <h2 class="section-title"><i class="bi bi-cake2-fill"></i>Cumples y Eventos</h2>
     <p>¡Cumples con aventura para ellos y tranquilidad para vos! Mientras resuelven pistas y viven una historia real con amigos, ustedes pueden relajarse. Nuestro equipo guía cada paso en un ambiente seguro y sin pantallas.</p>
     <details class="mb-3">
-      <summary class="h3 mb-3">¿Por qué festejar en Juegos de Escape Resistencia?</summary>
+      <summary class="cumple-summary">¿Por qué festejar en Juegos de Escape Resistencia?</summary>
       <ul class="list-unstyled ms-3">
         <li>Jugás dos salas seguidas con historia y efectos reales.</li>
         <li>El cumple dura 3 horas con el local exclusivo para el grupo.</li>
@@ -581,9 +565,9 @@
       </div>
       <div class="col-md-4 mb-3">
         <h4>Redes</h4>
-        <p><a href="https://instagram.com/juegosdeescaperesistencia" target="_blank">Instagram</a></p>
-        <p><a href="https://facebook.com/juegosescape" target="_blank">Facebook</a></p>
-        <p><a href="https://tiktok.com/@juegosdeescaperesistencia" target="_blank">TikTok</a></p>
+        <p><a href="https://instagram.com/juegosdeescaperesistencia" target="_blank"><i class="bi bi-instagram"></i> Instagram</a></p>
+        <p><a href="https://facebook.com/juegosescape" target="_blank"><i class="bi bi-facebook"></i> Facebook</a></p>
+        <p><a href="https://tiktok.com/@juegosdeescaperesistencia" target="_blank"><i class="bi bi-tiktok"></i> TikTok</a></p>
       </div>
       <div class="col-md-4 mb-3 text-md-end">
         <h4>Derechos</h4>
@@ -601,12 +585,6 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>
   AOS.init();
-  var heroSwiper = new Swiper('.hero-slider', {
-    loop: true,
-    autoplay: { delay: 5000 },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
-  });
   var gallerySwiper = new Swiper('.gallery-slider', {
     slidesPerView: 2,
     spaceBetween: 10,
