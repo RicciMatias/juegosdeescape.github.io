@@ -70,6 +70,19 @@
     .section-title i { color:rgba(255,255,255,0.7); margin-right:.5rem; }
     .icon-block { text-align:center; padding:1rem; }
     .icon-block i { font-size:2rem; color:#ff3b3b; }
+    .social-icon {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      font-size:2rem;
+      color:#ffffff;
+      border:1px solid #ff3b3b;
+      transition:background-color 0.3s, color 0.3s;
+    }
+    .social-icon:hover { background:#ff3b3b; color:#000; text-decoration:none; }
     .room-card img { width:100%; height:200px; object-fit:cover; border-radius:10px; transition:transform 0.3s, box-shadow 0.3s; }
     .room-card img:hover { transform:scale(1.05); box-shadow:0 4px 8px rgba(0,0,0,0.6); }
     .faq-item .accordion-button {
@@ -314,17 +327,18 @@
 <section id="opiniones" class="py-5 section-dark">
   <div class="container text-center">
     <h2 class="section-title"><i class="bi bi-star"></i>Opiniones de nuestros clientes</h2>
-    <a href="https://maps.app.goo.gl/UMJDNyejNFyNWTS26" target="_blank" class="btn btn-jder">⭐⭐⭐⭐⭐ Ver comentarios en Google</a>
+    <p class="mb-3">⭐⭐⭐⭐⭐ Tenemos un montón de clientes contentos que nos dejan sus comentarios en Google!</p>
+    <a href="https://maps.app.goo.gl/UMJDNyejNFyNWTS26" target="_blank" class="btn btn-jder">Ver comentarios en Google</a>
   </div>
 </section>
 <section id="redes" class="py-5 section-dark text-center">
   <div class="container">
     <h2 class="section-title"><i class="bi bi-share-fill"></i>Seguinos en Redes</h2>
-    <div class="d-flex justify-content-center gap-4 fs-1">
-      <a href="https://www.instagram.com/juegosdeescape/" target="_blank" class="text-decoration-none text-light"><i class="bi bi-instagram"></i></a>
-      <a href="https://www.facebook.com/juegosdeescape" target="_blank" class="text-decoration-none text-light"><i class="bi bi-facebook"></i></a>
-      <a href="https://wa.me/5493624631591?text=Hola,%20quiero%20reservar%20un%20turno%20en%20Juegos%20de%20Escape!" target="_blank" class="text-decoration-none text-light"><i class="bi bi-whatsapp"></i></a>
-      <a href="https://www.tiktok.com/@juegosdeescape" target="_blank" class="text-decoration-none text-light"><i class="bi bi-tiktok"></i></a>
+    <div class="d-flex justify-content-center gap-3">
+      <a href="https://www.instagram.com/juegosdeescape/" target="_blank" class="social-icon"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.facebook.com/juegosdeescape" target="_blank" class="social-icon"><i class="bi bi-facebook"></i></a>
+      <a href="https://wa.me/5493624631591?text=Hola,%20quiero%20reservar%20un%20turno%20en%20Juegos%20de%20Escape!" target="_blank" class="social-icon"><i class="bi bi-whatsapp"></i></a>
+      <a href="https://www.tiktok.com/@juegosdeescape" target="_blank" class="social-icon"><i class="bi bi-tiktok"></i></a>
     </div>
   </div>
 </section>
@@ -578,9 +592,11 @@
       </div>
       <div class="col-md-4 mb-3">
         <h4>Redes</h4>
-        <p><a href="https://www.instagram.com/juegosdeescape/" target="_blank"><i class="bi bi-instagram fs-3"></i> Instagram</a></p>
-        <p><a href="https://www.facebook.com/juegosdeescape" target="_blank"><i class="bi bi-facebook fs-3"></i> Facebook</a></p>
-        <p><a href="https://www.tiktok.com/@juegosdeescape" target="_blank"><i class="bi bi-tiktok fs-3"></i> TikTok</a></p>
+        <div class="d-flex gap-2">
+          <a href="https://www.instagram.com/juegosdeescape/" target="_blank" class="social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.facebook.com/juegosdeescape" target="_blank" class="social-icon"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.tiktok.com/@juegosdeescape" target="_blank" class="social-icon"><i class="bi bi-tiktok"></i></a>
+        </div>
       </div>
       <div class="col-md-4 mb-3 text-md-end">
         <h4>Derechos</h4>
