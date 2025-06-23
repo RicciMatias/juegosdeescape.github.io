@@ -127,10 +127,11 @@
       position:fixed;
       inset:0;
       z-index:-1;
-      opacity:0.1;
-      background:linear-gradient(-45deg,#8B0000,#2a2a2a,#8B0000,#2a2a2a);
-      background-size:400% 400%;
-      animation:gradientBG 50s ease infinite;
+      pointer-events:none;
+      opacity:0.25;
+      background:linear-gradient(120deg,#8B0000,#2a2a2a,#8B0000,#2a2a2a);
+      background-size:300% 300%;
+      animation:gradientBG 40s ease infinite;
     }
 
     @keyframes gradientBG {
@@ -610,11 +611,11 @@
       </div>
       <div class="col-md-4 mb-3">
         <h4>Redes</h4>
-        <div class="d-flex gap-2">
-          <a href="https://www.instagram.com/juegosdeescape/" target="_blank" class="social-icon"><i class="bi bi-instagram"></i></a>
-          <a href="https://www.facebook.com/juegosdeescape" target="_blank" class="social-icon"><i class="bi bi-facebook"></i></a>
-          <a href="https://www.tiktok.com/@juegosdeescape" target="_blank" class="social-icon"><i class="bi bi-tiktok"></i></a>
-        </div>
+        <ul class="list-unstyled">
+          <li><a href="https://www.instagram.com/juegosdeescape/" target="_blank">Instagram</a></li>
+          <li><a href="https://www.facebook.com/juegosdeescape" target="_blank">Facebook</a></li>
+          <li><a href="https://www.tiktok.com/@juegosdeescape" target="_blank">TikTok</a></li>
+        </ul>
       </div>
       <div class="col-md-4 mb-3 text-md-end">
         <h4>Derechos</h4>
