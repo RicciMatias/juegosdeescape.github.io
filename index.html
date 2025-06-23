@@ -62,6 +62,10 @@
       inset:0;
       background:rgba(0,0,0,0.6);
     }
+    .hero-slider h1 { font-size:3rem; }
+    @media (max-width: 576px) {
+      .hero-slider h1 { font-size:1.75rem; }
+    }
     .slide-content { position:relative; z-index:1; }
     .room-card { background:#111; color:#ffffff; border:1px solid #444444; }
     .section-title { color:#ffffff; text-align:center; margin-bottom:2rem; }
@@ -483,23 +487,30 @@
 <section id="cumples" class="py-5 section-dark">
   <div class="container">
     <h2 class="section-title">Cumples y Eventos</h2>
-    <div class="row align-items-center">
-      <div class="col-md-6" data-aos="fade-right">
-        <p>¡Cumples con aventura para ellos y tranquilidad para vos! Mientras resuelven pistas y viven una historia real con amigos, vos podés relajarte. Nuestro equipo guía cada paso en un ambiente seguro y sin pantallas.</p>
-        <p class="mb-3"><strong>Escribinos por WhatsApp y armamos el cumple a tu medida.</strong></p>
-        <a href="https://wa.me/5493624631591?text=Hola!%20Quiero%20festejar%20un%20CUMPLEA%C3%91OS%20en%20Juegos%20de%20Escape%20Resistencia!" target="_blank" class="btn btn-jder">Cotizar por WhatsApp</a>
-      </div>
-      <div class="col-md-6" data-aos="fade-left">
-        <h3 class="mb-3">¿Por qué festejar en Juegos de Escape Resistencia?</h3>
-        <ul class="list-unstyled">
-          <li>Jugás dos salas seguidas con historia y efectos reales.</li>
-          <li>El cumple dura 3 horas con el local exclusivo para el grupo.</li>
-          <li>Incluye tarjeta digital de invitación y espacio para padres.</li>
-          <li>Podés traer lo que quieras para comer o tomar (hay heladera).</li>
-          <li>Nosotros guiamos todo y cuidamos la experiencia.</li>
-          <li>Ideal para grupos de <strong>8 a 32 personas</strong>.</li>
-          <li>¡No se suspende por lluvia y está todo listo al llegar!</li>
-        </ul>
+    <div class="accordion" id="cumpleAccordion">
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="cumpleHeading">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cumpleCollapse" aria-expanded="false" aria-controls="cumpleCollapse">
+            Conocé nuestras opciones para festejar
+          </button>
+        </h2>
+        <div id="cumpleCollapse" class="accordion-collapse collapse" aria-labelledby="cumpleHeading" data-bs-parent="#cumpleAccordion">
+          <div class="accordion-body">
+            <p>¡Cumples con aventura para ellos y tranquilidad para vos! Mientras resuelven pistas y viven una historia real con amigos, vos podés relajarte. Nuestro equipo guía cada paso en un ambiente seguro y sin pantallas.</p>
+            <h3 class="mb-3">¿Por qué festejar en Juegos de Escape Resistencia?</h3>
+            <ul class="list-unstyled">
+              <li>Jugás dos salas seguidas con historia y efectos reales.</li>
+              <li>El cumple dura 3 horas con el local exclusivo para el grupo.</li>
+              <li>Incluye tarjeta digital de invitación y espacio para padres.</li>
+              <li>Podés traer lo que quieras para comer o tomar (hay heladera).</li>
+              <li>Nosotros guiamos todo y cuidamos la experiencia.</li>
+              <li>Ideal para grupos de <strong>8 a 32 personas</strong>.</li>
+              <li>¡No se suspende por lluvia y está todo listo al llegar!</li>
+            </ul>
+            <p class="mb-3"><strong>Escribinos por WhatsApp y armamos el cumple a tu medida.</strong></p>
+            <a href="https://wa.me/5493624631591?text=Hola!%20Quiero%20festejar%20un%20CUMPLEA%C3%91OS%20en%20Juegos%20de%20Escape%20Resistencia!" target="_blank" class="btn btn-jder">Cotizar por WhatsApp</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
