@@ -69,6 +69,7 @@
     .slide-content { position:relative; z-index:1; }
     .room-card { background:#111; color:#ffffff; border:1px solid #444444; }
     .section-title { color:#ffffff; text-align:center; margin-bottom:2rem; }
+    .section-title i { color:rgba(255,255,255,0.7); margin-right:.5rem; }
     .icon-block { text-align:center; padding:1rem; }
     .icon-block i { font-size:2rem; color:#ff3b3b; }
     .room-card img { width:100%; height:200px; object-fit:cover; border-radius:10px; transition:transform 0.3s, box-shadow 0.3s; }
@@ -117,8 +118,8 @@
         <li class="nav-item"><a class="nav-link" href="#como">Cómo jugar</a></li>
         <li class="nav-item"><a class="nav-link" href="#ubicacion">Dónde estamos</a></li>
         <li class="nav-item"><a class="nav-link" href="#salas">Salas</a></li>
-        <li class="nav-item"><a class="nav-link" href="#faqs">Preguntas frecuentes</a></li>
         <li class="nav-item"><a class="nav-link" href="#cumples">Cumples</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faqs">Preguntas frecuentes</a></li>
         <li class="nav-item"><a class="nav-link" href="#quienes">Quiénes juegan</a></li>
         <li class="nav-item"><a class="nav-link" href="#opiniones">Opiniones</a></li>
         <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes somos</a></li>
@@ -161,7 +162,7 @@
 <!-- COMO JUGAR -->
 <section id="como" class="py-5 section-dark">
   <div class="container">
-    <h2 class="section-title">¿Serás capaz de escapar en 60 minutos?</h2>
+    <h2 class="section-title"><i class="bi bi-hourglass-split"></i>¿Serás capaz de escapar en 60 minutos?</h2>
     <div class="row text-center">
       <div class="col-md-4 icon-block" data-aos="fade-up">
         <i class="bi bi-mouse"></i>
@@ -186,7 +187,7 @@
 </section>
 <section id="ubicacion" class="py-5">
   <div class="container text-center">
-    <h2 class="section-title">Dónde Estamos</h2>
+    <h2 class="section-title"><i class="bi bi-geo-alt"></i>Dónde Estamos</h2>
     <p>Catamarca 352, Resistencia, Chaco - Argentina</p>
     <p>Horarios: jueves a lunes · 14:00 a 22:45 (feriados incluidos)</p>
     <div class="ratio ratio-16x9 my-3">
@@ -199,7 +200,7 @@
 <!-- SALAS -->
 <section id="salas" class="py-5 section-dark">
   <div class="container">
-    <h2 class="section-title">Nuestras Salas</h2>
+    <h2 class="section-title"><i class="bi bi-door-open"></i>Nuestras Salas</h2>
     <div class="row g-4">
       <div class="col-md-4" data-aos="fade-up">
         <div class="card room-card h-100">
@@ -281,10 +282,42 @@
   </div>
 </section>
 
+<section id="cumples" class="py-5 section-dark">
+  <div class="container">
+    <h2 class="section-title"><i class="bi bi-cake"></i>Cumples y Eventos</h2>
+    <div class="accordion" id="cumpleAccordion">
+      <div class="accordion-item faq-item">
+        <h2 class="accordion-header" id="cumpleHeading">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cumpleCollapse" aria-expanded="false" aria-controls="cumpleCollapse">
+            Conocé nuestras opciones para festejar
+          </button>
+        </h2>
+        <div id="cumpleCollapse" class="accordion-collapse collapse" aria-labelledby="cumpleHeading" data-bs-parent="#cumpleAccordion">
+          <div class="accordion-body">
+            <p>¡Cumples con aventura para ellos y tranquilidad para vos! Mientras resuelven pistas y viven una historia real con amigos, vos podés relajarte. Nuestro equipo guía cada paso en un ambiente seguro y sin pantallas.</p>
+            <h3 class="mb-3">¿Por qué festejar en Juegos de Escape Resistencia?</h3>
+            <ul class="list-unstyled">
+              <li>Jugás dos salas seguidas con historia y efectos reales.</li>
+              <li>El cumple dura 3 horas con el local exclusivo para el grupo.</li>
+              <li>Incluye tarjeta digital de invitación y espacio para padres.</li>
+              <li>Podés traer lo que quieras para comer o tomar (hay heladera).</li>
+              <li>Nosotros guiamos todo y cuidamos la experiencia.</li>
+              <li>Ideal para grupos de <strong>8 a 32 personas</strong>.</li>
+              <li>¡No se suspende por lluvia y está todo listo al llegar!</li>
+            </ul>
+            <p class="mb-3"><strong>Escribinos por WhatsApp y armamos el cumple a tu medida.</strong></p>
+            <a href="https://wa.me/5493624631591?text=Hola!%20Quiero%20festejar%20un%20CUMPLEA%C3%91OS%20en%20Juegos%20de%20Escape%20Resistencia!" target="_blank" class="btn btn-jder">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PREGUNTAS FRECUENTES -->
 <section id="faqs" class="py-5">
   <div class="container">
-    <h2 class="section-title">Preguntas Frecuentes</h2>
+      <h2 class="section-title"><i class="bi bi-question-circle"></i>Preguntas Frecuentes</h2>
     <div class="accordion" id="faqAccordion">
       <div class="accordion-item faq-item">
         <h2 class="accordion-header" id="faq1">
@@ -484,41 +517,9 @@
   </div>
 </section>
 
-<section id="cumples" class="py-5 section-dark">
-  <div class="container">
-    <h2 class="section-title">Cumples y Eventos</h2>
-    <div class="accordion" id="cumpleAccordion">
-      <div class="accordion-item faq-item">
-        <h2 class="accordion-header" id="cumpleHeading">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cumpleCollapse" aria-expanded="false" aria-controls="cumpleCollapse">
-            Conocé nuestras opciones para festejar
-          </button>
-        </h2>
-        <div id="cumpleCollapse" class="accordion-collapse collapse" aria-labelledby="cumpleHeading" data-bs-parent="#cumpleAccordion">
-          <div class="accordion-body">
-            <p>¡Cumples con aventura para ellos y tranquilidad para vos! Mientras resuelven pistas y viven una historia real con amigos, vos podés relajarte. Nuestro equipo guía cada paso en un ambiente seguro y sin pantallas.</p>
-            <h3 class="mb-3">¿Por qué festejar en Juegos de Escape Resistencia?</h3>
-            <ul class="list-unstyled">
-              <li>Jugás dos salas seguidas con historia y efectos reales.</li>
-              <li>El cumple dura 3 horas con el local exclusivo para el grupo.</li>
-              <li>Incluye tarjeta digital de invitación y espacio para padres.</li>
-              <li>Podés traer lo que quieras para comer o tomar (hay heladera).</li>
-              <li>Nosotros guiamos todo y cuidamos la experiencia.</li>
-              <li>Ideal para grupos de <strong>8 a 32 personas</strong>.</li>
-              <li>¡No se suspende por lluvia y está todo listo al llegar!</li>
-            </ul>
-            <p class="mb-3"><strong>Escribinos por WhatsApp y armamos el cumple a tu medida.</strong></p>
-            <a href="https://wa.me/5493624631591?text=Hola!%20Quiero%20festejar%20un%20CUMPLEA%C3%91OS%20en%20Juegos%20de%20Escape%20Resistencia!" target="_blank" class="btn btn-jder">Cotizar por WhatsApp</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="quienes" class="py-5">
   <div class="container">
-    <h2 class="section-title">¿Quiénes juegan?</h2>
+    <h2 class="section-title"><i class="bi bi-people"></i>¿Quiénes juegan?</h2>
     <div class="row text-center">
       <div class="col-md-3" data-aos="zoom-in">
         <h4>Familia y Amigos</h4>
@@ -542,14 +543,14 @@
 
 <section id="opiniones" class="py-5 section-dark">
   <div class="container text-center">
-    <h2 class="section-title">Opiniones de nuestros clientes</h2>
+    <h2 class="section-title"><i class="bi bi-star"></i>Opiniones de nuestros clientes</h2>
     <p style="font-size:2rem;">⭐⭐⭐⭐⭐</p>
     <a href="https://maps.app.goo.gl/UMJDNyejNFyNWTS26" target="_blank" class="btn btn-jder">Ver comentarios en Google</a>
   </div>
 </section>
 <section id="quienes-somos" class="py-5 section-dark">
   <div class="container">
-    <h2 class="section-title">Quiénes Somos</h2>
+    <h2 class="section-title"><i class="bi bi-info-circle"></i>Quiénes Somos</h2>
     <p class="text-center">Somos un equipo de creativos, diseñadores y fanáticos del misterio que armamos Juegos de Escape Resistencia desde cero. Desde 2018 diseñamos cada sala a mano, con historias propias y objetos reales para que vivas una experiencia única. No usamos pantallas ni efectos vacíos: todo lo que pasa, pasa de verdad.</p>
   </div>
 </section>
@@ -574,7 +575,7 @@
 
 <!-- CTA FINAL -->
 <section class="py-5 text-center">
-  <h2 class="section-title" data-aos="fade">¿Estás listo?</h2>
+  <h2 class="section-title" data-aos="fade"><i class="bi bi-flag"></i>¿Estás listo?</h2>
   <a href="https://reservasjuegosescape.mclix.ar" target="_blank" class="btn btn-jder btn-lg m-2" data-aos="zoom-in">Reservar ahora</a>
   <a href="https://wa.me/5493624631591?text=Hola,%20quiero%20reservar%20un%20turno%20en%20Juegos%20de%20Escape!" target="_blank" class="btn btn-success btn-lg m-2" data-aos="zoom-in" data-aos-delay="100">Consultá por WhatsApp</a>
 </section>
