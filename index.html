@@ -142,6 +142,9 @@
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="70" tabindex="0">
+<div id="preloader" class="d-flex align-items-center justify-content-center position-fixed w-100 h-100" style="background:#000;z-index:1050;top:0;left:0;">
+  <div class="spinner-border text-danger" role="status"></div>
+</div>
 <div id="background"></div>
 
 <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -170,8 +173,8 @@
 <!-- HERO -->
 <section id="hero" class="hero">
   <div class="container" data-aos="fade-up">
-    <h1 class="fw-bold mb-3">UNA EXPERIENCIA ÚNICA</h1>
-    <p class="mb-4">¿Estás listo para vivirla?</p>
+    <h1 class="fw-bold mb-3">VIVÍ LA ADRENALINA DEL ESCAPE</h1>
+    <p class="mb-4">Reservá tu turno y sumate a la aventura</p>
     <a href="https://reservas.juegosescape.com.ar" class="btn btn-jder" target="_blank">Reservar</a>
   </div>
 </section>
@@ -184,15 +187,15 @@
     <div class="row text-center">
       <div class="col-md-4 icon-block" data-aos="fade-up">
         <i class="bi bi-people-fill"></i>
-        <h3>Armá tu equipo de 2 a 8 jugadores</h3>
+        <h3>Armen su equipo de 2 a 8 jugadores</h3>
       </div>
       <div class="col-md-4 icon-block" data-aos="fade-up" data-aos-delay="100">
         <i class="bi bi-door-closed"></i>
-        <h3>Serán encerrados en una habitación donde transcurre una historia...</h3>
+        <h3>Los encerramos en una habitación donde transcurre una historia...</h3>
       </div>
       <div class="col-md-4 icon-block" data-aos="fade-up" data-aos-delay="200">
         <i class="bi bi-puzzle"></i>
-        <h3>Deberán usar la lógica y el ingenio para resolver los enigmas y escapar!</h3>
+        <h3>Usen la lógica y el ingenio para resolver los enigmas y escapar!</h3>
       </div>
     </div>
     <div class="text-center mt-4">
@@ -325,7 +328,7 @@
 <section id="cumples" class="py-5 section-dark">
   <div class="container text-center">
     <h2 class="section-title"><i class="bi bi-gift-fill"></i>Cumples y Eventos</h2>
-    <p>¡Cumples con aventura para ellos y tranquilidad para vos! Mientras ellos tienen una experiencia increíble con amigos, ustedes pueden relajarse. Nuestro equipo guía cada paso en un ambiente seguro.</p>
+    <p>¡Cumples con aventura para ellos y tranquilidad para vos! Mientras los chicos viven una experiencia increíble con amigos, ustedes pueden relajarse. Nuestro equipo guía cada paso en un ambiente seguro.</p>
     <details class="mb-3">
       <summary class="cumple-summary">¿Por qué festejar en Juegos de Escape Resistencia?</summary>
       <ul class="list-unstyled ms-3">
@@ -568,7 +571,7 @@
 <section id="quienes-somos" class="py-5 section-dark">
   <div class="container">
     <h2 class="section-title"><i class="bi bi-info-circle"></i>Quiénes Somos</h2>
-    <p class="text-center">Somos un equipo de creativos, diseñadores y fanáticos del misterio que armamos Juegos de Escape Resistencia desde cero. Desde 2018 diseñamos cada sala a mano, con historias propias y objetos reales para que vivas una experiencia única. Todo lo que pasa, pasa de verdad.</p>
+    <p class="text-center">Somos un equipo de creativos, diseñadores y amantes del misterio. Desde 2018 imaginamos cada sala con nuestras propias historias y objetos reales para que vivas una aventura inolvidable en Resistencia.</p>
   </div>
 </section>
 
@@ -593,10 +596,11 @@
 
 
 <!-- CTA FINAL -->
+</section>
 <section class="py-5 text-center">
-  <h2 class="section-title" data-aos="fade"><i class="bi bi-flag"></i>¿Estás listo?</h2>
+  <h2 class="section-title" data-aos="fade"><i class="bi bi-flag"></i>¿Listos para jugar?</h2>
   <a href="https://reservas.juegosescape.com.ar" target="_blank" class="btn btn-jder btn-lg m-2" data-aos="zoom-in">Reservar ahora</a>
-  <a href="https://wa.me/5493624631591?text=Hola,%20quiero%20reservar%20un%20turno%20en%20Juegos%20de%20Escape!" target="_blank" class="btn btn-success btn-lg m-2" data-aos="zoom-in" data-aos-delay="100">Consultá por WhatsApp</a>
+  <a href="https://wa.me/5493624631591?text=Hola,%20quiero%20reservar%20un%20turno%20en%20Juegos%20de%20Escape!" target="_blank" class="btn btn-success btn-lg m-2" data-aos="zoom-in" data-aos-delay="100">Consultas por WhatsApp</a>
 </section>
 
 <footer>
@@ -633,6 +637,10 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>
   AOS.init();
+  window.addEventListener('load', function() {
+    var pre = document.getElementById('preloader');
+    if (pre) pre.style.display = 'none';
+  });
   var gallerySwiper = new Swiper('.gallery-slider', {
     slidesPerView: 2,
     spaceBetween: 10,
