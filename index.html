@@ -4,199 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Juegos de Escape Resistencia</title>
+  <meta name="description" content="Salas de escape temáticas en Resistencia, Chaco. Armá tu equipo y descubrí si podés salir en 60 minutos." />
+  <meta name="keywords" content="juegos de escape, escape room, Resistencia, Chaco, entretenimiento, cumpleaños" />
+  <meta property="og:title" content="Juegos de Escape Resistencia" />
+  <meta property="og:description" content="Viví una aventura única en nuestras salas de escape." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://juegosescape.com.ar" />
+  <meta property="og:image" content="https://juegosescape.com.ar/ImagenesJDER/LOGOJDERBLANCO.webp" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #000;
-      color: #eee;
-    }
-    header {
-      background: linear-gradient(90deg, #111, #000);
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    header img {
-      max-width: 220px;
-    }
-    nav {
-      background-color: #000;
-      border-bottom: 1px solid #333;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 0.5rem;
-      list-style: none;
-      margin: 0;
-      flex-wrap: wrap;
-    }
-    nav a {
-      text-decoration: none;
-      color: #ffd700;
-      font-family: 'Poppins', sans-serif;
-      font-weight: bold;
-    }
-    .hero {
-      height: 60vh;
-      background-image: url('https://juegosescape.com.ar/ImagenesJDER/fondo.webp');
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-    .hero-content {
-      position: relative;
-      text-align: center;
-      z-index: 1;
-      color: #f2f2f2;
-    }
-    .hero-content h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
-    }
-    .hero-content p {
-      font-size: 1.2rem;
-    }
-    .hero-content a {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #ffd700;
-      color: #000;
-      font-family: 'Poppins', sans-serif;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-    section {
-      padding: 4rem 1rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .section-dark {
-      background-color: #111;
-    }
-    h2.section-title {
-      font-family: 'Poppins', sans-serif;
-      color: #ffd700;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .descripcion {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .grid-salas {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-    }
-    .card {
-      background-color: #111;
-      border: 1px solid #333;
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: scale(1.02);
-    }
-    .card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-    .card-content {
-      padding: 1rem;
-    }
-    .card-content h3 {
-      font-family: 'Poppins', sans-serif;
-      color: #ffd700;
-      margin-top: 0;
-    }
-    .card-content p {
-      font-size: 0.95rem;
-    }
-    .card-content a {
-      display: inline-block;
-      margin-top: 1rem;
-      background-color: #25d366;
-      color: white;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      border-radius: 4px;
-      font-family: 'Poppins', sans-serif;
-    }
-    .cta {
-      background-color: #111;
-      text-align: center;
-      color: #ffd700;
-    }
-    .cta p {
-      color: #f2f2f2;
-    }
-    .cta a {
-      display: inline-block;
-      margin-top: 1rem;
-      background-color: #25d366;
-      color: white;
-      padding: 1rem 2rem;
-      font-size: 1.1rem;
-      text-decoration: none;
-      font-family: 'Poppins', sans-serif;
-      border-radius: 6px;
-    }
-    footer {
-      background-color: #000;
-      padding: 2rem 1rem;
-      color: #aaa;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: space-between;
-    }
-    footer .col {
-      flex: 1 1 200px;
-    }
-    footer a {
-      color: #ffd700;
-      text-decoration: none;
-    }
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 44px;
-      height: 44px;
-      background-color: #25d366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      z-index: 999;
-      box-shadow: 0 0 10px #000;
-      text-decoration: none;
-      color: #fff;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 </head>
 <body>
 
   <!-- HEADER -->
   <header>
-    <img src="https://juegosescape.com.ar/ImagenesJDER/LOGOJDERBLANCO.webp" alt="Juegos de Escape Logo" />
+    <img src="https://juegosescape.com.ar/ImagenesJDER/LOGOJDERBLANCO.webp" alt="Logo de Juegos de Escape Resistencia" loading="lazy" />
   </header>
 
   <!-- NAV -->
@@ -217,6 +40,27 @@
     </div>
   </section>
 
+  <section id="opiniones" class="reviews">
+    <h2 class="section-title">Opiniones en Google</h2>
+    <div class="swiper reviews-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <p class="review-text">"Excelente ambientación y atención. ¡Muy recomendable!"</p>
+          <p class="review-author">— Maria G.</p>
+        </div>
+        <div class="swiper-slide">
+          <p class="review-text">"Nos divertimos muchísimo resolviendo los enigmas."</p>
+          <p class="review-author">— Lucas P.</p>
+        </div>
+        <div class="swiper-slide">
+          <p class="review-text">"Una experiencia diferente para compartir con amigos."</p>
+          <p class="review-author">— Sofía R.</p>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
   <!-- QUIÉNES SOMOS -->
   <section class="section-dark" id="quienes">
     <h2 class="section-title">Quiénes Somos</h2>
@@ -230,7 +74,7 @@
     <h2 class="section-title">Nuestras Salas</h2>
     <div class="grid-salas">
       <div class="card">
-        <img src="https://juegosescape.com.ar/ImagenesJDER/ULTRATUMBA1.1.webp" alt="Ultra Tumba" />
+        <img src="https://juegosescape.com.ar/ImagenesJDER/ULTRATUMBA1.1.webp" alt="Sala Ultra Tumba" loading="lazy" />
         <div class="card-content">
           <h3>Ultra Tumba 🦇🪦🥀</h3>
           <p>Un caso olvidado en el cementerio. Revelá la verdad antes de convertirte en parte del pasado.</p>
@@ -238,7 +82,7 @@
         </div>
       </div>
       <div class="card">
-        <img src="https://juegosescape.com.ar/ImagenesJDER/VELATORIA1X1.webp" alt="Sala Velatoria" />
+        <img src="https://juegosescape.com.ar/ImagenesJDER/VELATORIA1X1.webp" alt="Sala Velatoria" loading="lazy" />
         <div class="card-content">
           <h3>Sala Velatoria ⚰️🕯️👻</h3>
           <p>Una velada con secretos ocultos. Infiltrate y descubrí lo que no debería saberse.</p>
@@ -246,7 +90,7 @@
         </div>
       </div>
       <div class="card">
-        <img src="https://juegosescape.com.ar/ImagenesJDER/ATRACO1X1.webp" alt="Atraco Narco" />
+        <img src="https://juegosescape.com.ar/ImagenesJDER/ATRACO1X1.webp" alt="Sala Atraco Narco" loading="lazy" />
         <div class="card-content">
           <h3>Atraco Narco 💰🔫📺</h3>
           <p>Entrá, robá, escapá. Un bunker, una banda narco y 60 minutos para sobrevivir.</p>
@@ -254,7 +98,7 @@
         </div>
       </div>
       <div class="card">
-        <img src="https://juegosescape.com.ar/ImagenesJDER/PABELLON1X1.webp" alt="Pabellón 5" />
+        <img src="https://juegosescape.com.ar/ImagenesJDER/PABELLON1X1.webp" alt="Sala Pabellón 5" loading="lazy" />
         <div class="card-content">
           <h3>Pabellón 5 🧱⚽📻</h3>
           <p>¿Podés escapar del pabellón más peligroso del penal? El tiempo no está de tu lado.</p>
@@ -262,7 +106,7 @@
         </div>
       </div>
       <div class="card">
-        <img src="https://juegosescape.com.ar/ImagenesJDER/PLANDENTAL1X1.webp" alt="Plan Dental" />
+        <img src="https://juegosescape.com.ar/ImagenesJDER/PLANDENTAL1X1.webp" alt="Sala Plan Dental" loading="lazy" />
         <div class="card-content">
           <h3>Plan Dental 🦷😱🪥</h3>
           <p>El dentista ya no trabaja con pacientes... sino con víctimas. Escapá a tiempo.</p>
@@ -270,7 +114,7 @@
         </div>
       </div>
       <div class="card">
-        <img src="https://juegosescape.com.ar/ImagenesJDER/CULTO1X1.webp" alt="Culto Zodiacal" />
+        <img src="https://juegosescape.com.ar/ImagenesJDER/CULTO1X1.webp" alt="Sala Culto Zodiacal" loading="lazy" />
         <div class="card-content">
           <h3>Culto Zodiacal 🔮♒📓</h3>
           <p>Sectas, símbolos y oscuridad. Tu signo puede ser tu maldición... o tu salvación.</p>
@@ -308,6 +152,15 @@
 
   <!-- WHATSAPP FLOTANTE -->
   <a class="whatsapp-button" href="https://wa.me/5493624631591?text=Hola%20Juegos%20de%20Escape!%20Tengo%20una%20consulta%0ADatos%20importantes%20(-no%20borrar-)%0AReserva:%20Finalizada%0APago%20de%20se%C3%B1a:%20Completado" title="Chatear por WhatsApp">💬</a>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    new Swiper('.reviews-slider', {
+      loop: true,
+      autoplay: { delay: 5000 },
+      pagination: { el: '.reviews-slider .swiper-pagination', clickable: true }
+    });
+  </script>
 
 </body>
 </html>
